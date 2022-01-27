@@ -35,9 +35,9 @@ const Blogs = () =>
     return (
         <div id='blogs' className='container'>
             <div className={`grid ${trigger ? 'grid-cols-1' : 'sm:grid-cols-4 grid-cols-1'} gap-4 sm:divide-x-2 sm:divide-dotted`}>
-                <aside className='grid grid-cols-1 gap-4 col-span-3 p-5'>
+                <aside className='grid grid-cols-1 gap-4 col-span-3 p-5 sm:p-10'>
                     <div>
-                        <div className="flex justify-center items-end text-white text-2xl" style={{ fontFamily: 'Poiret One, cursive' }}>
+                        <div className="flex justify-center items-end text-white text-3xl" style={{ fontFamily: 'Poiret One, cursive' }}>
                             <FaQuoteRight className='text-4xl' />&nbsp; Our Travelers Experience...
                         </div>
                         <div className='hidden sm:flex justify-end items-center'>
@@ -49,12 +49,12 @@ const Blogs = () =>
                             }
                         </div>
                     </div>
-                    <div className="text-center">
+                    {/* <div className="text-center">
                         {
                             [...Array(pageCount).keys()].map((number, index) => <button key={index} onClick={() => setPage(number)} className={number === page ? 'bg-gray-300 text-black rounded-full shadow-md mr-3 px-3 py-1 hover:bg-gray-400' : 'bg-slate-500 text-white rounded-full shadow-md mr-3 px-3 py-1 hover:bg-slate-700'}>{number + 1}</button>
                             )
                         }
-                    </div>
+                    </div> */}
                     <div className='grid grid-rows-3 gap-4'>
                         {
                             blogs.map(blog => <figure key={blog._id} className="md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800">
@@ -92,7 +92,7 @@ const Blogs = () =>
                 <aside className='sm:mb-10'>
                     <div className={`grid grid-cols-1 gap-4 p-5 divide-y-8 divide-solid ${trigger ? 'inset-0 hidden' : 'inset-0 block'}`}>
                         <div className="flex justify-center items-end text-white text-2xl my-5" style={{ fontFamily: 'Poiret One, cursive' }}>
-                            <FaQuoteRight className='text-4xl' />&nbsp; Our Top Rated Spot
+                            <FaQuoteRight className='text-3xl' />&nbsp; Our Top Rated Spot
                         </div>
                         {
                             spots.map(spot => <figure key={spot._id} className="md:flex flex-col bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800">
