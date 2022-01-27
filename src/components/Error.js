@@ -1,4 +1,6 @@
-import React from 'react';
+/*--------------------------------------------------- 
+            Error alert Reusable Components
+-----------------------------------------------------*/
 
 const Error = ({ errorMgs }) =>
 {

@@ -4,6 +4,7 @@ import AuthProvider from './Context/AuthProvider';
 import AdminRoute from './Pages/Authentication/AdminRoute/AdminRoute';
 import Login from './Pages/Authentication/Login/Login';
 import PrivateRoute from './Pages/Authentication/PrivateRoute/PrivateRoute';
+import Blog from './Pages/Blogs/Blog';
 import BlogsApproval from './Pages/Dashboard/BlogsApproval';
 import BlogsManagement from './Pages/Dashboard/BlogsManagement';
 import Dashboard from './Pages/Dashboard/Dashboard';
@@ -25,6 +26,9 @@ function App ()
             <Route path="home" element={<Home />} />
             <Route path="gallery" element={<Gallery />} />
             <Route path="login" element={<Login />} />
+            <Route path="blog/:id" element={<PrivateRoute>
+              <Blog />
+            </PrivateRoute>} />
             <Route path="dashboard" element={<PrivateRoute>
               <Dashboard />
             </PrivateRoute>}>

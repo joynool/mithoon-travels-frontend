@@ -1,7 +1,7 @@
 /*--------------------------------------------------- 
             Header Reusable Components
 -----------------------------------------------------*/
-function HeaderItem ({ Icon, title })
+function HeaderItem ({ title })
 {
     return (
         <div className="cursor-pointer mx-3 hover:text-white hover:underline underline-offset-8 decoration-1">
