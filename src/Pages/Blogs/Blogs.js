@@ -7,7 +7,7 @@ const Blogs = () =>
     const [trigger, setTrigger] = useState(false);
 
     return (
-        <div className='container'>
+        <div id='blogs' className='container'>
             <div className='flex justify-center items-center'>
                 <aside className='grid grid-cols-1 gap-4 sm:border-r p-5'>
                     <figure className="md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800">

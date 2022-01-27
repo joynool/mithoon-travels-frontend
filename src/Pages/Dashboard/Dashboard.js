@@ -4,12 +4,12 @@ import useAuth from '../../hooks/useAuth';
 import Header from './../Shared/Header/Header';
 import Footer from './../Shared/Footer/Footer';
 import { ChevronLeftIcon, LogoutIcon, MenuIcon } from '@heroicons/react/outline';
-import { MdAccountBalance, MdAccountBox, MdMoney } from "react-icons/md";
+import { MdAssignment, MdAssignmentTurnedIn, MdOutlineAdminPanelSettings, MdTravelExplore, MdRateReview } from "react-icons/md";
 
 const Dashboard = () =>
 {
     const [trigger, setTrigger] = useState(false);
-    const { user, logOut } = useAuth();
+    const { user, admin, logOut } = useAuth();
 
     return (
         <>
@@ -21,18 +21,30 @@ const Dashboard = () =>
                         <LogoutIcon onClick={logOut} className='h-8 w-8 mr-1 hover:bg-white hover:text-black hover:rounded cursor-pointer' />
                         <ChevronLeftIcon onClick={() => setTrigger(false)} className='h-12 p-2 hover:bg-gray-500 rounded-md cursor-pointer lg:hidden' />
                     </div>
-                    <ul className='mt-8 mx-2 py-10 border-y-2'>
-                        <li>
-                            <Link to={"/dashboard/annual"} onClick={() => setTrigger(false)} className='px-4 py-2 text-xl hover:bg-gray-700 rounded-md flex items-center mb-5'>
-                                <MdAccountBalance />&nbsp;&nbsp;Blogs Management
-                            </Link>
-                            <Link to={"/dashboard/individual"} onClick={() => setTrigger(false)} className='px-4 py-2 text-xl hover:bg-gray-700 rounded-md flex items-center mb-5'>
-                                <MdAccountBox />&nbsp;&nbsp;Blogs Approval
-                            </Link>
-                            <Link to={"/dashboard/deposit"} onClick={() => setTrigger(false)} className='px-4 py-2 text-xl hover:bg-gray-700 rounded-md flex items-center'>
-                                <MdMoney />&nbsp;&nbsp;Make Admin
-                            </Link>
-                        </li>
+                    <ul className='mt-8 mx-2 py-10 border-y'>
+                        {
+                            admin ?
+                                <li>
+                                    <Link to={"blogs-management"} onClick={() => setTrigger(false)} className='px-4 py-2 text-xl hover:bg-gray-700 rounded-md flex items-center mb-5'>
+                                        <MdAssignment />&nbsp;&nbsp;Blogs Management
+                                    </Link>
+                                    <Link to={"blogs-approval"} onClick={() => setTrigger(false)} className='px-4 py-2 text-xl hover:bg-gray-700 rounded-md flex items-center mb-5'>
+                                        <MdAssignmentTurnedIn />&nbsp;&nbsp;Blogs Approval
+                                    </Link>
+                                    <Link to={"make-admin"} onClick={() => setTrigger(false)} className='px-4 py-2 text-xl hover:bg-gray-700 rounded-md flex items-center'>
+                                        <MdOutlineAdminPanelSettings />&nbsp;&nbsp;Make Admin
+                                    </Link>
+                                </li>
+                                :
+                                <li>
+                                    <Link to={"share-experience"} onClick={() => setTrigger(false)} className='px-4 py-2 text-xl hover:bg-gray-700 rounded-md flex items-center mb-5'>
+                                        <MdTravelExplore />&nbsp;&nbsp;Share Your Experience
+                                    </Link>
+                                    <Link to={"write-review"} onClick={() => setTrigger(false)} className='px-4 py-2 text-xl hover:bg-gray-700 rounded-md flex items-center mb-5'>
+                                        <MdRateReview />&nbsp;&nbsp;Write Review
+                                    </Link>
+                                </li>
+                        }
                     </ul>
                 </nav>
                 <div className='relative z-0 lg:flex-grow'>

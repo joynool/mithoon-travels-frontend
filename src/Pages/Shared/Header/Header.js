@@ -8,6 +8,7 @@ import
 import HeaderItem from '../../../components/HeaderItem';
 import logo from './../../../images/logo.png';
 import useAuth from '../../../hooks/useAuth';
+import { HashLink } from 'react-router-hash-link';
 
 const Header = () =>
 {
@@ -27,10 +28,10 @@ const Header = () =>
                 <NavLink to={'/home'}>
                     <HeaderItem title='HOME' />
                 </NavLink>
-                <NavLink to={'/rules'}>
+                <HashLink to={'/home#blogs'}>
                     <HeaderItem title='BLOGS' />
-                </NavLink>
-                <NavLink to={'/dashboard'}>
+                </HashLink>
+                <NavLink to={'/gallery'}>
                     <HeaderItem title='GALLERY' />
                 </NavLink>
                 {

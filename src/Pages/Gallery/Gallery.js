@@ -1,19 +1,16 @@
 import React from 'react';
-import Banner from '../Banner/Banner';
-import Blogs from '../Blogs/Blogs';
 import Footer from '../Shared/Footer/Footer';
 import Header from '../Shared/Header/Header';
 
-const Home = () =>
+const Gallery = () =>
 {
     return (
-        <main>
+        <>
             <Header />
-            <Banner />
-            <Blogs />
+            <h2>Hello from gallery</h2>
             <Footer />
-        </main>
+        </>
     );
 };
 
-export default Home;
+export default Gallery;

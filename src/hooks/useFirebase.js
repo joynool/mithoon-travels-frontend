@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../Pages/Authentication/Firebase/firebase.init";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 /*------------------------------------------------------------------------
 Implement custom hook as useFirebase() to pass all firebase functionality
@@ -16,6 +16,47 @@ const useFirebase = () =>
 
     const auth = getAuth();
 
+    const registerUser = (email, password, name, navigate) =>
+    {
+        setIsLoading(true);
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) =>
+            {
+                setAuthError('');
+                const newUser = { email, displayName: name };
+                setUser(newUser);
+                saveUser(email, name, 'POST');
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                })
+                    .then(() => { })
+                    .catch((error) => { });
+                navigate('/');
+            })
+            .catch((error) =>
+            {
+                setAuthError(error.message);
+            })
+            .finally(() => setIsLoading(false));
+    }
+
+    const loginUser = (email, password, location, navigate) =>
+    {
+        setIsLoading(true);
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) =>
+            {
+                const destination = location?.state?.from || '/';
+                navigate(destination);
+                setAuthError('');
+            })
+            .catch((error) =>
+            {
+                setAuthError(error.message);
+            })
+            .finally(() => setIsLoading(false));
+    }
+
     const loginUsingGoogle = (location, navigate) =>
     {
         setIsLoading(true)
@@ -23,6 +64,8 @@ const useFirebase = () =>
         signInWithPopup(auth, googleProvider)
             .then(result =>
             {
+                const user = result.user;
+                saveUser(user.email, user.displayName, 'PUT');
                 setAuthError('');
                 const destination = location?.state?.from || '/';
                 navigate(destination);
@@ -46,6 +89,13 @@ const useFirebase = () =>
         return () => unsubscribe;
     }, [auth]);
 
+    useEffect(() =>
+    {
+        fetch(`http://localhost:5000/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
+
     const logOut = () =>
     {
         setIsLoading(true);
@@ -54,7 +104,20 @@ const useFirebase = () =>
             .finally(() => setIsLoading(false));
     };
 
-    return { user, admin, setAdmin, isLoading, setIsLoading, loginUsingGoogle, logOut, authError, setAuthError };
+    const saveUser = (email, displayName, method) =>
+    {
+        const user = { email, displayName };
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
+    }
+
+    return { user, admin, setAdmin, isLoading, setIsLoading, registerUser, loginUser, loginUsingGoogle, logOut, authError, setAuthError };
 };
 
 export default useFirebase;

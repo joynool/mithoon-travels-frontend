@@ -8,7 +8,7 @@ const PrivateRoute = ({ children }) =>
     const { user, isLoading } = useAuth();
     let location = useLocation();
     if (isLoading) {
-        return <div className='flex items-center justify-center'>
+        return <div className='flex items-center justify-center my-20'>
             <StarIcon className='animate-spin h-10 w-10 text-white m-10' />
         </div>
     }
