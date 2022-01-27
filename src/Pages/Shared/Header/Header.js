@@ -33,9 +33,12 @@ const Header = () =>
                 <NavLink to={'/dashboard'}>
                     <HeaderItem title='GALLERY' />
                 </NavLink>
-                <NavLink to={'/contact'}>
-                    <HeaderItem title='CONTACT' />
-                </NavLink>
+                {
+                    user.email &&
+                    <NavLink to={'/dashboard'}>
+                        <HeaderItem title='DASHBOARD' />
+                    </NavLink>
+                }
             </div>
             <div className='hover:text-white cursor-pointer my-2'>
                 {

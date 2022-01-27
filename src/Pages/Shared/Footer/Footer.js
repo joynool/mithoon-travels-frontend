@@ -9,7 +9,7 @@ const Footer = () =>
     return (
         <footer>
             <section className='flex flex-col lg:flex-row items-center justify-around bg-gray-800'>
-                <div>
+                <div className='mt-5'>
                     <iframe title='Google Map' src={'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3741437.2151148906!2d90.35633102080202!3d23.684993990074968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30adaaed80e18ba7%3A0xf2d28e0c4e1fc6b!2sBangladesh!5e0!3m2!1sen!2sbd!4v1643222810533!5m2!1sen!2sbd'} width={300} height={200} style={{ border: 0 }} className='m-3 rounded' loading="lazy"></iframe>
                     <div className="flex justify-center items-start text-white text-2xl mb-3" style={{ fontFamily: 'Poiret One, cursive' }}>
                         <FaQuoteRight className='text-3xl' />&nbsp; The journey is my home...
