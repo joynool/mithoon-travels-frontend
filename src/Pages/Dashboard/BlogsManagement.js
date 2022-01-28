@@ -51,7 +51,7 @@ const BlogsManagement = () =>
     return (
         <>
             <div className="flex justify-center items-end text-white text-2xl mb-5" style={{ fontFamily: 'Poiret One, cursive' }}>
-                <FaQuoteRight className='text-3xl' />&nbsp; All Blogs Management Panel
+                <FaQuoteRight className='text-3xl' />&nbsp; All Blogs Management
             </div>
             <p className='text-center font-semibold mb-3'>TOTAL BLOG - {allBlogs.length}</p>
             <div className="flex flex-col">
