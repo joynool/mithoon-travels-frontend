@@ -25,10 +25,10 @@ const Header = () =>
                 </a>
             </div>
             <div className='flex flex-grow justify-center max-w-2xl'>
-                <NavLink to={'/home'}>
+                <NavLink to={'/'}>
                     <HeaderItem title='HOME' />
                 </NavLink>
-                <HashLink to={'/home#blogs'}>
+                <HashLink to={'/#blogs'}>
                     <HeaderItem title='BLOGS' />
                 </HashLink>
                 <NavLink to={'/gallery'}>

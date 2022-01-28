@@ -19,7 +19,7 @@ const Footer = () =>
                     <span className='my-1 text-sm underline underline-offset-8'>Mithoon Travels</span>
                     <Link to="/home" className='my-1 hover:text-white'>Home</Link>
                     <Link to="/home#blogs" className='mb-1 hover:text-white'>Blogs</Link>
-                    <Link to="/gallery" className='mb-5 hover:text-white'>Our Gallery</Link>
+                    <Link to="/gallery" className='mb-3 hover:text-white'>Our Gallery</Link>
 
                     <span className='my-3 text-sm underline underline-offset-8'>Follow us on social networks</span>
                     <div className='flex items-center mb-5'>

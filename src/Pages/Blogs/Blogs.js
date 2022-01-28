@@ -37,8 +37,8 @@ const Blogs = () =>
             <div className={`grid ${trigger ? 'grid-cols-1' : 'sm:grid-cols-4 grid-cols-1'} gap-4 sm:divide-x-2 sm:divide-dotted`}>
                 <aside className='grid grid-cols-1 gap-4 col-span-3 p-5 sm:p-10'>
                     <div>
-                        <div className="flex justify-center items-end text-white text-3xl" style={{ fontFamily: 'Poiret One, cursive' }}>
-                            <FaQuoteRight className='text-4xl' />&nbsp; Our Travelers Experience...
+                        <div className="flex justify-center items-end text-white text-2xl" style={{ fontFamily: 'Poiret One, cursive' }}>
+                            <FaQuoteRight className='text-3xl' />&nbsp; Our Travelers Experience...
                         </div>
                         <div className='hidden sm:flex justify-end items-center'>
                             {

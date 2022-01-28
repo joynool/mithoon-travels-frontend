@@ -23,28 +23,27 @@ const Dashboard = () =>
                     </div>
                     <ul className='mt-8 mx-2 py-10 border-y'>
                         {
-                            admin ?
-                                <li>
-                                    <Link to={"blogs-management"} onClick={() => setTrigger(false)} className='px-4 py-2 text-xl hover:bg-gray-700 rounded-md flex items-center mb-5'>
-                                        <MdAssignment />&nbsp;&nbsp;Blogs Management
-                                    </Link>
-                                    <Link to={"blogs-approval"} onClick={() => setTrigger(false)} className='px-4 py-2 text-xl hover:bg-gray-700 rounded-md flex items-center mb-5'>
-                                        <MdAssignmentTurnedIn />&nbsp;&nbsp;Blogs Approval
-                                    </Link>
-                                    <Link to={"make-admin"} onClick={() => setTrigger(false)} className='px-4 py-2 text-xl hover:bg-gray-700 rounded-md flex items-center'>
-                                        <MdOutlineAdminPanelSettings />&nbsp;&nbsp;Make Admin
-                                    </Link>
-                                </li>
-                                :
-                                <li>
-                                    <Link to={"share-experience"} onClick={() => setTrigger(false)} className='px-4 py-2 text-xl hover:bg-gray-700 rounded-md flex items-center mb-5'>
-                                        <MdTravelExplore />&nbsp;&nbsp;Share Your Experience
-                                    </Link>
-                                    <Link to={"write-review"} onClick={() => setTrigger(false)} className='px-4 py-2 text-xl hover:bg-gray-700 rounded-md flex items-center mb-5'>
-                                        <MdRateReview />&nbsp;&nbsp;Write Review
-                                    </Link>
-                                </li>
+                            admin &&
+                            <li>
+                                <Link to={"blogs-management"} onClick={() => setTrigger(false)} className='px-4 py-2 text-xl hover:bg-gray-700 rounded-md flex items-center mb-5'>
+                                    <MdAssignment />&nbsp;&nbsp;Blogs Management
+                                </Link>
+                                <Link to={"blogs-approval"} onClick={() => setTrigger(false)} className='px-4 py-2 text-xl hover:bg-gray-700 rounded-md flex items-center mb-5'>
+                                    <MdAssignmentTurnedIn />&nbsp;&nbsp;Blogs Approval
+                                </Link>
+                                <Link to={"make-admin"} onClick={() => setTrigger(false)} className='px-4 py-2 text-xl hover:bg-gray-700 rounded-md flex items-center mb-5'>
+                                    <MdOutlineAdminPanelSettings />&nbsp;&nbsp;Make Admin
+                                </Link>
+                            </li>
                         }
+                        <li>
+                            <Link to={"share-experience"} onClick={() => setTrigger(false)} className='px-4 py-2 text-xl hover:bg-gray-700 rounded-md flex items-center mb-5'>
+                                <MdTravelExplore />&nbsp;&nbsp;Share Your Experience
+                            </Link>
+                            <Link to={"write-review"} onClick={() => setTrigger(false)} className='px-4 py-2 text-xl hover:bg-gray-700 rounded-md flex items-center mb-5'>
+                                <MdRateReview />&nbsp;&nbsp;Write Review
+                            </Link>
+                        </li>
                     </ul>
                 </nav>
                 <div className='relative z-0 lg:flex-grow'>

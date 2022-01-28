@@ -7,6 +7,7 @@ import PrivateRoute from './Pages/Authentication/PrivateRoute/PrivateRoute';
 import Blog from './Pages/Blogs/Blog';
 import BlogsApproval from './Pages/Dashboard/BlogsApproval';
 import BlogsManagement from './Pages/Dashboard/BlogsManagement';
+import BlogUpdate from './Pages/Dashboard/BlogUpdate';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin';
 import ShareExperience from './Pages/Dashboard/ShareExperience';
@@ -23,7 +24,6 @@ function App ()
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="home" element={<Home />} />
             <Route path="gallery" element={<Gallery />} />
             <Route path="login" element={<Login />} />
             <Route path="blog/:id" element={<PrivateRoute>
@@ -41,6 +41,7 @@ function App ()
               <Route path="blogs-management" element={<BlogsManagement />} />
               <Route path="blogs-approval" element={<BlogsApproval />} />
               <Route path="make-admin" element={<MakeAdmin />} />
+              <Route path="blogs-management/update-blog/:id" element={<BlogUpdate />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
